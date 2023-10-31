@@ -30,7 +30,7 @@ const initialvalues = {
   error: "",
   login_error: "",
 };
-export default function signin({ providers, callbackUrl, csrfToken }) {
+const Signin = ({ providers, callbackUrl, csrfToken })=> {
   const [loading, setLoading] = useState(false);
   const [user, setUser] = useState(initialvalues);
 
@@ -295,3 +295,6 @@ export async function getServerSideProps(context) {
     },
   };
 }
+
+
+export default Signin;

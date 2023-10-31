@@ -42,7 +42,7 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
   borderTop: "1px solid rgba(0, 0, 0, .125)",
 }));
 
-export default function Accordian({ details }) {
+const Accordian = ({ details })=> {
   const [expanded, setExpanded] = React.useState("");
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
@@ -67,8 +67,8 @@ export default function Accordian({ details }) {
           </div>
         </AccordionDetails>
         <AccordionDetails className="scrollbar">
-          {details.slice(1, details.length).map((info) => (
-            <div className={styles.infos__accordian_grid}>
+          {details.slice(1, details.length).map((info,index) => (
+            <div key={index} className={styles.infos__accordian_grid}>
               <span>{info.name}:</span>
               <span>{info.value}</span>
             </div>
@@ -94,3 +94,5 @@ export default function Accordian({ details }) {
     </div>
   );
 }
+
+export default Accordian;

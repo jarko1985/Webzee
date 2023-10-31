@@ -4,10 +4,12 @@ import Category from "../../../models/Category";
 import { useState } from "react";
 import Create from "../../../components/admin/categories/Create";
 import List from "../../../components/admin/categories/List";
-export default function categories({ categories }) {
+
+const Categories = ({ categories })=> {
   const [data, setData] = useState(categories);
-  console.log(data);
+
   return (
+    
     <Layout>
       <div>
         <Create setCategories={setData} />
@@ -26,3 +28,6 @@ export async function getServerSideProps(context) {
     },
   };
 }
+
+
+export default Categories;

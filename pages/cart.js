@@ -4,7 +4,7 @@ import Empty from "../components/cart/empty";
 import Header from "../components/cart/header";
 import Product from "../components/cart/product";
 import styles from "../styles/cart.module.scss";
-import { updateCart,emptyCart } from "../store/cartSlice";
+import { updateCart } from "../store/cartSlice";
 import CartHeader from "../components/cart/cartHeader";
 import Checkout from "../components/cart/checkout";
 import PaymentMethods from "../components/cart/paymentMethods";
@@ -12,11 +12,8 @@ import ProductsSwiper from "../components/productsSwiper";
 import { women_swiper } from "../data/home";
 import { useSession, signIn } from "next-auth/react";
 import { useRouter } from "next/router";
-import { saveCart } from "@/requests/user";
-import axios from "axios";
-
-
-export default function cart() {
+import { saveCart } from "../requests/user";
+const Cart = ()=> {
   const Router = useRouter();
   const { data: session } = useSession();
   const [selected, setSelected] = useState([]);
@@ -26,18 +23,6 @@ export default function cart() {
   const [shippingFee, setShippingFee] = useState(0);
   const [subtotal, setSubtotal] = useState(0);
   const [total, setTotal] = useState(0);
-
-  // useEffect(()=>{
-  //   const update = async()=>{
-  //     const {data} = await axios.post("/api/updateCart",{
-  //       products:cart.cartItems
-  //     });
-  //     dispatch(updateCart(data))
-  //   };
-  //   if(cart.cartItems.length > 0){
-  //     update();
-  //   }
-  // },[])
   useEffect(() => {
     setShippingFee(
       selected.reduce((a, c) => a + Number(c.shipping), 0).toFixed(2)
@@ -96,3 +81,5 @@ export default function cart() {
     </>
   );
 }
+
+export default Cart;

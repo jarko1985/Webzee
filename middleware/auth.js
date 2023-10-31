@@ -9,7 +9,8 @@ export default async (req, res, next) => {
   if (token) {
     //signed in
     req.user = token.sub;
-    next();
+    console.log(req.user);
+    // next();
   } else {
     res.status(401).json({ message: "Not signed in :" });
   }

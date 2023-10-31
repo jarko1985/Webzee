@@ -12,10 +12,10 @@ import { useState } from "react";
 import ProductsSwiper from "../../components/productsSwiper";
 import Infos from "@/components/productPage/infos";
 import Reviews from "@/components/productPage/reviews";
-export default function product({ product, related }) {
+const ProductPage = ({ product, related })=> {
     const [activeImg, setActiveImg] = useState("");
     const country = {
-      name: "Morocco",
+      name: "United Arab Emirates",
       flag: "https://cdn-icons-png.flaticon.com/512/197/197551.png?w=360",
     };
     return (
@@ -27,9 +27,9 @@ export default function product({ product, related }) {
         <div className={styles.product}>
           <div className={styles.product__container}>
             <div className={styles.path}>
-              Home / {product.category.name}
-              {product.subCategories.map((sub) => (
-                <span>/{sub.name}</span>
+              Home / {product?.category?.name}
+              {product?.subCategories.map((sub,i) => (
+                <span key={i}>/{sub.name}</span>
               ))}
             </div>
             <div className={styles.product__main}>
@@ -61,8 +61,8 @@ export async function getServerSideProps(context) {
       .populate({ path: "subCategories", model: SubCategory })
       .populate({ path: "reviews.reviewBy", model: User })
       .lean();
-    let subProduct = product.subProducts[style];
-    let prices = subProduct.sizes
+    let subProduct = product?.subProducts[style];
+    let prices = subProduct?.sizes
       .map((s) => {
         return s.price;
       })
@@ -72,17 +72,17 @@ export async function getServerSideProps(context) {
     let newProduct = {
       ...product,
       style,
-      images: subProduct.images,
-      sizes: subProduct.sizes,
-      discount: subProduct.discount,
-      sku: subProduct.sku,
-      colors: product.subProducts.map((p) => {
+      images: subProduct?.images,
+      sizes: subProduct?.sizes,
+      discount: subProduct?.discount,
+      sku: subProduct?.sku,
+      colors: product?.subProducts.map((p) => {
         return p.color;
       }),
-      priceRange: subProduct.discount
-        ? `From ${(prices[0] - prices[0] / subProduct.discount).toFixed(2)} to ${(
-            prices[prices.length - 1] -
-            prices[prices.length - 1] / subProduct.discount
+      priceRange: subProduct?.discount
+        ? `From ${(prices[0] - prices[0] / subProduct?.discount).toFixed(2)} to ${(
+            prices[prices.length - 1] - 
+            prices[prices.length - 1] / subProduct?.discount
           ).toFixed(2)}$`
         : `From ${prices[0]} to ${prices[prices.length - 1]}$`,
       price:
@@ -125,7 +125,7 @@ export async function getServerSideProps(context) {
             array.findIndex((el2) => el2.size === element.size) === index
         ),
     };
-    const related = await Product.find({ category: product.category._id }).lean();
+    const related = await Product.find({ category: product?.category?._id }).lean();
     //------------
     function calculatePercentage(num) {
       return (
@@ -147,3 +147,5 @@ export async function getServerSideProps(context) {
       },
     };
   }
+
+  export default ProductPage;

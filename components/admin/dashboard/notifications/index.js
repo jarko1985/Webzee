@@ -4,7 +4,7 @@ import Link from "next/link";
 import { IoNotificationsSharp } from "react-icons/io5";
 import { notificationsData } from "../../../../data/notifications";
 //-----------------------
-export default function Notifications({}) {
+const Notifications = ({}) =>{
   const [show, setShow] = useState(false);
   return (
     <div
@@ -59,3 +59,5 @@ export default function Notifications({}) {
     </div>
   );
 }
+
+export default Notifications;

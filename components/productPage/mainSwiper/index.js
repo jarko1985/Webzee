@@ -2,7 +2,7 @@ import styles from "./styles.module.scss";
 import ReactImageMagnify from "react-image-magnify";
 import { useState } from "react";
 
-export default function MainSwiper({ images, activeImg }) {
+const MainSwiper = ({ images, activeImg })=> {
   const [active, setActive] = useState(0);
   return (
     <div className={styles.swiper}>
@@ -42,3 +42,5 @@ export default function MainSwiper({ images, activeImg }) {
     </div>
   );
 }
+
+export default MainSwiper;

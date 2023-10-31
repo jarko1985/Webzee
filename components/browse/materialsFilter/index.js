@@ -4,11 +4,11 @@ import { BsPlusLg } from "react-icons/bs";
 import { FaMinus } from "react-icons/fa";
 import styles from "../styles.module.scss";
 
-export default function MaterialsFilter({
+const MaterialsFilter=({
   materials,
   materialHandler,
   replaceQuery,
-}) {
+})=> {
   const router = useRouter();
   const [show, setShow] = useState(true);
   return (
@@ -22,6 +22,7 @@ export default function MaterialsFilter({
             const check = replaceQuery("material", material);
             return (
               <label
+                key={i}
                 htmlFor={material}
                 className={styles.filter__sizes_size}
                 onClick={() => materialHandler(check.result)}
@@ -45,3 +46,4 @@ export default function MaterialsFilter({
     </div>
   );
 }
+export default MaterialsFilter;

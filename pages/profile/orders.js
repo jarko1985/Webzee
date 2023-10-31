@@ -8,9 +8,8 @@ import Order from "../../models/Order";
 import styles from "../../styles/profile.module.scss";
 import { FiExternalLink } from "react-icons/fi";
 import slugify from "slugify";
-export default function orders({ user, tab, orders }) {
+const Orders =({ user, tab, orders }) =>{
   const router = useRouter();
-  console.log(router.query);
   return (
     <Layout session={user.user} tab={tab}>
       <Head>
@@ -56,12 +55,12 @@ export default function orders({ user, tab, orders }) {
             </tr>
           </thead>
           <tbody>
-            {orders.map((order) => (
-              <tr>
+            {orders.map((order,index) => (
+              <tr key={index}>
                 <td>{order._id}</td>
                 <td className={styles.orders__images}>
-                  {order.products.map((p) => (
-                    <img src={p.image} key={p._id} alt="" />
+                  {order.products.map((p,index) => (
+                    <img  src={p.image} key={p._id} alt="" />
                   ))}
                 </td>
                 <td>
@@ -130,3 +129,6 @@ export async function getServerSideProps(ctx) {
     props: { user: session, tab, orders: JSON.parse(JSON.stringify(orders)) },
   };
 }
+
+
+export default Orders;

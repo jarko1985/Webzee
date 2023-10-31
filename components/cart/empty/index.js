@@ -1,7 +1,7 @@
 import styles from "./styles.module.scss";
 import { useSession, signIn } from "next-auth/react";
 import Link from "next/link";
-export default function Empty() {
+const Empty=()=> {
   const { data: session } = useSession();
   return (
     <div className={styles.empty}>
@@ -24,3 +24,5 @@ export default function Empty() {
     </div>
   );
 }
+
+export default Empty;

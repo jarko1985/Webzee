@@ -1,6 +1,6 @@
 import { getSession } from "next-auth/react";
 import Layout from "../../components/profile/layout";
-export default function profile({ user, tab }) {
+const profile=({ user, tab })=> {
   return <Layout session={user.user} tab={tab}></Layout>;
 }
 
@@ -12,3 +12,4 @@ export async function getServerSideProps(ctx) {
     props: { user: session, tab },
   };
 }
+export default profile;

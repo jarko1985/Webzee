@@ -11,7 +11,7 @@ import "swiper/css/navigation";
 
 // import required modules
 import { Navigation } from "swiper";
-export default function SimillarSwiper() {
+const SimillarSwiper =()=> {
   return (
     <Swiper
       slidesPerView={4}
@@ -27,8 +27,8 @@ export default function SimillarSwiper() {
         },
       }}
     >
-      {simillar_products.map((p) => (
-        <SwiperSlide>
+      {simillar_products.map((p,i) => (
+        <SwiperSlide key={i}>
           <Link href="">
             <img src={p} alt="" />
           </Link>
@@ -37,3 +37,5 @@ export default function SimillarSwiper() {
     </Swiper>
   );
 }
+
+export default SimillarSwiper;

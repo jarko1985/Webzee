@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Navigation } from "swiper";
-export default function ProductsSwiper({ header, products, bg }) {
+const ProductsSwiper=({ header, products, bg })=> {
   return (
     <div className={styles.wrapper}>
       {header && (
@@ -39,8 +39,8 @@ export default function ProductsSwiper({ header, products, bg }) {
           },
         }}
       >
-        {products.map((product) => (
-          <SwiperSlide>
+        {products.map((product,index) => (
+          <SwiperSlide key={index} >
             <div className={styles.product}>
               <div className={styles.product__img}>
                 <img src={product.image} alt="" />
@@ -60,3 +60,5 @@ export default function ProductsSwiper({ header, products, bg }) {
     </div>
   );
 }
+
+export default ProductsSwiper;

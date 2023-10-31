@@ -3,7 +3,7 @@ import { BiUser } from "react-icons/bi";
 import { SiMinutemailer } from "react-icons/si";
 import { IoKeyOutline } from "react-icons/io5";
 import { ErrorMessage, useField } from "formik";
-export default function LoginInput({ icon, placeholder, ...props }) {
+const LoginInput = ({ icon, placeholder, ...props })=> {
   const [field, meta] = useField(props);
   return (
     <div
@@ -36,3 +36,5 @@ export default function LoginInput({ icon, placeholder, ...props }) {
     </div>
   );
 }
+
+export default LoginInput;

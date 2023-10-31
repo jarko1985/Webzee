@@ -15,7 +15,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { addToCart, updateCart } from "../../../store/cartSlice";
 import { hideDialog, showDialog } from "../../../store/DialogSlice";
 import { signIn, useSession } from "next-auth/react";
-export default function Infos({ product, setActiveImg }) {
+import { toast } from "react-toastify";
+const Infos = ({ product, setActiveImg })=> {
   const router = useRouter();
   const dispatch = useDispatch();
   const { data: session } = useSession();
@@ -24,10 +25,9 @@ export default function Infos({ product, setActiveImg }) {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const { cart } = useSelector((state) => ({ ...state }));
-  console.log(cart)
-  // useEffect(() => {
-  //   dispatch(hideDialog());
-  // }, []);
+  useEffect(() => {
+    dispatch(hideDialog());
+  }, []);
   useEffect(() => {
     setSize("");
     setQty(1);
@@ -56,7 +56,7 @@ export default function Infos({ product, setActiveImg }) {
       let _uid = `${data._id}_${product.style}_${router.query.size}`;
       let exist = cart?.cartItems?.find((p) => p._uid === _uid);
       if (exist) {  
-        let newCart = cart.cartItems.map((p) => {
+        let newCart = cart.cartItems.map((p,index) => {
           if (p._uid == exist._uid) {
             return { ...p, qty: qty };
           }
@@ -69,9 +69,10 @@ export default function Infos({ product, setActiveImg }) {
             ...data,  
             qty,
             size: data.size,
-            _uid,
+            _uid, 
           })
         );
+        toast.success("Item Added To Cart!!")
       }
     }
   };
@@ -153,7 +154,7 @@ export default function Infos({ product, setActiveImg }) {
           <h4>Select a Size : </h4>
           <div className={styles.infos__sizes_wrap}>
             {product.sizes.map((size, i) => (
-              <Link
+              <Link key={i}
                 href={`/product/${product.slug}?style=${router.query.style}&size=${i}`}
               >
                 <div
@@ -171,7 +172,7 @@ export default function Infos({ product, setActiveImg }) {
         <div className={styles.infos__colors}>
           {product.colors &&
             product.colors.map((color, i) => (
-              <span
+              <span key={i}
                 className={i == router.query.style ? styles.active_color : ""}
                 onMouseOver={() =>
                   setActiveImg(product.subProducts[i].images[0].url)
@@ -218,3 +219,5 @@ export default function Infos({ product, setActiveImg }) {
     </div>
   );
 }
+
+export default Infos;

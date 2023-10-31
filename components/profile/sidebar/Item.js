@@ -5,7 +5,7 @@ import Link from "next/link";
 import { HiMinusSm, HiPlusSm } from "react-icons/hi";
 import slugify from "slugify";
 import { useRouter } from "next/router";
-export default function Item({ item, visible, index }) {
+const Item = ({ item, visible, index }) =>{
   const [show, setShow] = useState(visible);
   const router = useRouter();
   return (
@@ -63,3 +63,5 @@ export default function Item({ item, visible, index }) {
     </li>
   );
 }
+
+export default Item;

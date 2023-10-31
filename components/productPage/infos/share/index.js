@@ -23,7 +23,7 @@ import {
   WhatsappIcon,
 } from "react-share";
 
-export default function Share() {
+const Share = ()=> {
   return (
     <div className={styles.share}>
       <FacebookShareButton url={window?.location.href}>
@@ -56,3 +56,4 @@ export default function Share() {
     </div>
   );
 }
+export default Share;

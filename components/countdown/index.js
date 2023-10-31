@@ -8,7 +8,7 @@ const defaultRemainingTime = {
   hours: "00",
   days: "00",
 };
-export default function Countdown({ date }) {
+const Countdown = ({ date })=> {
   const [timeInMs, setTimeInMs] = useState(date.getTime());
   const [remainingTime, setRemainingTime] = useState();
   useEffect(() => {
@@ -48,3 +48,5 @@ export default function Countdown({ date }) {
     </div>
   );
 }
+
+export default Countdown;

@@ -6,14 +6,14 @@ import { BsCheckLg } from "react-icons/bs";
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-export default function HeadingFilters({
+const HeadingFilters=({
   priceHandler,
   multiPriceHandler,
   shippingHandler,
   replaceQuery,
   ratingHandler,
   sortHandler,
-}) {
+})=> {
   const router = useRouter();
   const [show, setShow] = useState(false);
   const check = replaceQuery(
@@ -199,3 +199,4 @@ const sortingOptions = [
     value: "priceHighToLow",
   },
 ];
+export default  HeadingFilters;

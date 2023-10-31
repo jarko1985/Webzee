@@ -1,7 +1,6 @@
 import styles from "./styles.module.scss";
 import { MdFlashOn } from "react-icons/md";
 import Countdown from "../../countdown";
-import { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -49,7 +48,7 @@ export default function FlashDeals() {
       >
         <div className={styles.flashDeals__list}>
           {flashDealsArray.map((product, i) => (
-            <SwiperSlide>
+            <SwiperSlide key={i}>
               <FlashCard product={product} key={i} />
             </SwiperSlide>
           ))}

@@ -2,14 +2,14 @@ import { MenuItem, TextField } from "@mui/material";
 import { ErrorMessage, useField } from "formik";
 import styles from "./styles.module.scss";
 
-export default function SingularSelect({
+const SingularSelect=({
   data,
   handleChange,
   placeholder,
   header,
   disabled,
   ...rest
-}) {
+}) =>{
   const [field, meta] = useField(rest);
   return (
     <div style={{ marginBottom: "1rem" }}>
@@ -56,3 +56,5 @@ export default function SingularSelect({
     </div>
   );
 }
+
+export default SingularSelect;

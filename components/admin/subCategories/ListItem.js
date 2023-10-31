@@ -6,12 +6,11 @@ import { AiFillDelete, AiTwotoneEdit } from "react-icons/ai";
 import { toast } from "react-toastify";
 import SingularSelect from "../../selects/SingularSelect";
 import styles from "./styles.module.scss";
-export default function ListItem({
+const ListItem =({
   categories,
   subCategory,
   setSubCategories,
-}) {
-  console.log("sub", subCategory);
+}) =>{
   const [open, setOpen] = useState(false);
   const [name, setName] = useState("");
   const [parent, setParent] = useState("");
@@ -98,3 +97,5 @@ export default function ListItem({
     </li>
   );
 }
+
+export default ListItem;

@@ -4,11 +4,11 @@ import { BsPlusLg } from "react-icons/bs";
 import { FaMinus } from "react-icons/fa";
 import styles from "../styles.module.scss";
 
-export default function PatternsFilter({
+const PatternsFilter = ({
   patterns,
   patternHandler,
   replaceQuery,
-}) {
+})=> {
   const router = useRouter();
   const existedPattern = router.query.pattern || "";
   const [show, setShow] = useState(true);
@@ -23,6 +23,7 @@ export default function PatternsFilter({
             const check = replaceQuery("pattern", pattern);
             return (
               <label
+                key={i}
                 htmlFor={pattern}
                 className={styles.filter__sizes_size}
                 onClick={() => patternHandler(check.result)}
@@ -46,3 +47,5 @@ export default function PatternsFilter({
     </div>
   );
 }
+
+export default PatternsFilter;

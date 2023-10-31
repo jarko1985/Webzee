@@ -6,7 +6,7 @@ import AdminInput from "../../inputs/adminInput";
 import { toast } from "react-toastify";
 import axios from "axios";
 import SingularSelect from "../../selects/SingularSelect";
-export default function Create({ categories, setSubCategories }) {
+const Create = ({ categories, setSubCategories })=> {
   const [name, setName] = useState("");
   const [parent, setParent] = useState("");
   const validate = Yup.object({
@@ -72,3 +72,5 @@ export default function Create({ categories, setSubCategories }) {
     </>
   );
 }
+
+export default Create;

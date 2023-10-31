@@ -25,14 +25,14 @@ async function connectDB() {
 }
 
 async function disconnectDB() {
-  if (connection.isConnected) {
-    if (process.env.NODE_ENV === "production") {
-      await mongoose.disconnect();
-      connection.isConnected = false;
-    } else {
-      console.log("Database is Not disconnected!!");
-    }
-  }
+  // if (connection.isConnected) {
+  //   if (process.env.NODE_ENV === "production") {
+  //     await mongoose.disconnect();
+  //     connection.isConnected = false;
+  //   } else {
+  //     console.log("Database is Not disconnected!!");
+  //   }
+  // }
 }
 
 const db = { connectDB, disconnectDB };

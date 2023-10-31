@@ -13,7 +13,7 @@ import styles from "./styles.module.scss";
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="down" ref={ref} {...props} />;
 });
-export default function DialogModal({ type }) {
+const DialogModal =({ type }) =>{
   const dispatch = useDispatch();
   const { dialog } = useSelector((state) => ({ ...state }));
   const test = dialog.msgs.find((x) => x.type == "error");
@@ -77,3 +77,5 @@ export default function DialogModal({ type }) {
     </div>
   );
 }
+
+export default DialogModal;

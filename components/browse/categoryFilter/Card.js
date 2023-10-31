@@ -2,7 +2,7 @@
 import { BsPlusLg } from "react-icons/bs";
 import { FaMinus } from "react-icons/fa";
 import { useState } from "react";
-export default function Card({ category, categoryHandler, replaceQuery }) {
+const Card = ({ category, categoryHandler, replaceQuery })=> {
   const [show, setShow] = useState(false);
   const check = replaceQuery("category", category._id);
   return (
@@ -24,3 +24,4 @@ export default function Card({ category, categoryHandler, replaceQuery }) {
     </>
   );
 }
+export default Card;

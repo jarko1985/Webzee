@@ -5,7 +5,7 @@ import { FaMinus } from "react-icons/fa";
 import styles from "../styles.module.scss";
 import Size from "./Size";
 
-export default function SizesFilter({ sizes, sizeHandler }) {
+const SizesFilter = ({ sizes, sizeHandler })=> {
   const router = useRouter();
   const existedSize = router.query.size || "";
   const [show, setShow] = useState(true);
@@ -18,6 +18,7 @@ export default function SizesFilter({ sizes, sizeHandler }) {
         <div className={styles.filter__sizes}>
           {sizes.map((size, i) => (
             <div
+              key={i}
               onClick={() =>
                 sizeHandler(existedSize ? `${existedSize}_${size}` : size)
               }
@@ -30,3 +31,5 @@ export default function SizesFilter({ sizes, sizeHandler }) {
     </div>
   );
 }
+
+export default SizesFilter;

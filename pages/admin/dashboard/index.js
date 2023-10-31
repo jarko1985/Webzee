@@ -12,7 +12,7 @@ import { SlHandbag, SlEye } from "react-icons/sl";
 import { SiProducthunt } from "react-icons/si";
 import { GiTakeMyMoney } from "react-icons/gi";
 import Link from "next/link";
-export default function dashboard({ users, orders, products }) {
+const Dashboard=({ users, orders, products })=> {
   const { data: session } = useSession();
   console.log(orders);
   return (
@@ -94,8 +94,8 @@ export default function dashboard({ users, orders, products }) {
                 </tr>
               </thead>
               <tbody>
-                {orders.map((order) => (
-                  <tr>
+                {orders.map((order,index) => (
+                  <tr key={index}>
                     <td>{order.user?.name}</td>
                     <td>{order.total} $</td>
                     <td>
@@ -141,8 +141,8 @@ export default function dashboard({ users, orders, products }) {
             </div>
             <table>
               <tbody>
-                {users.map((user) => (
-                  <tr>
+                {users.map((user,index) => (
+                  <tr key={index}>
                     <td className={styles.user}>
                       <div className={styles.user__img}>
                         <img src={user.image} alt="" />
@@ -177,3 +177,5 @@ export async function getServerSideProps({ req }) {
     },
   };
 }
+
+export default Dashboard;

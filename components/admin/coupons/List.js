@@ -1,7 +1,7 @@
 import ListItem from "./ListItem";
 import styles from "./styles.module.scss";
 
-export default function List({ coupons, setCoupons }) {
+const List = ({ coupons, setCoupons })=> {
   return (
     <ul className={styles.list}>
       {coupons.map((coupon) => (
@@ -10,3 +10,7 @@ export default function List({ coupons, setCoupons }) {
     </ul>
   );
 }
+
+
+export default List;
+

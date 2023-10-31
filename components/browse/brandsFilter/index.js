@@ -4,7 +4,7 @@ import { FaMinus } from "react-icons/fa";
 import styles from "../styles.module.scss";
 import { useRouter } from "next/router";
 
-export default function BrandsFilter({ brands, brandHandler, replaceQuery }) {
+const BrandsFilter = ({ brands, brandHandler, replaceQuery })=> {
   const router = useRouter();
   const [show, setShow] = useState(true);
   return (
@@ -18,6 +18,7 @@ export default function BrandsFilter({ brands, brandHandler, replaceQuery }) {
             const check = replaceQuery("brand", brand);
             return (
               <button
+                key={i}
                 className={`${styles.filter__brand} ${
                   check.active ? styles.activeFilter : ""
                 }`}
@@ -32,3 +33,6 @@ export default function BrandsFilter({ brands, brandHandler, replaceQuery }) {
     </div>
   );
 }
+
+
+export default BrandsFilter;

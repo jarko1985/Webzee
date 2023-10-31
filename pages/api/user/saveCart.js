@@ -4,10 +4,9 @@ import User from "../../../models/User";
 import Cart from "../../../models/Cart";
 import db from "../../../utils/db";
 import auth from "@/middleware/auth";
-const handler = nc().use(auth); 
-handler.post(async (req, res) => {
-  console.log("req.user",req.user);
- 
+const handler = nc().use(auth);
+handler.post(async (req, res, next) => {
+
     try {
       db.connectDB();
       const { cart } = req.body;
@@ -17,7 +16,7 @@ handler.post(async (req, res) => {
       if (existing_cart) {
         await existing_cart.remove();
       }
-      for (let i = 0; i < cart.length; i++) {   
+      for (let i = 0; i < cart?.length; i++) {   
         let dbProduct = await Product.findById(cart[i]._id).lean();
         let subProduct = dbProduct.subProducts[cart[i].style];
         let tempProduct = {};
@@ -42,7 +41,7 @@ handler.post(async (req, res) => {
       }
       let cartTotal = 0;
   
-      for (let i = 0; i < products.length; i++) {
+      for (let i = 0; i < products?.length; i++) {
         cartTotal = cartTotal + products[i].price * products[i].qty;
       }
       await new Cart({
@@ -51,6 +50,7 @@ handler.post(async (req, res) => {
         user: user._id,
       }).save();
       db.disconnectDB();
+      return res.status(200).json({ message: 'success'})
     } catch (error) {
       return res.status(500).json({ message: error.message });
     }

@@ -35,7 +35,7 @@ function getStyles(name, personName, theme) {
   };
 }
 
-export default function MultipleSelect({
+const MultipleSelect =({
   data,
   handleChange,
   value,
@@ -43,7 +43,7 @@ export default function MultipleSelect({
   header,
   disabled,
   ...rest
-}) {
+}) =>{
   const [subs, setSubs] = useState(data || []);
   const [field, meta] = useField(rest);
   useEffect(() => {
@@ -133,3 +133,5 @@ export default function MultipleSelect({
     </div>
   );
 }
+
+export default MultipleSelect;

@@ -6,14 +6,14 @@ import ShippingInput from "../../inputs/shippingInput";
 import { applyCoupon } from "../../../requests/user";
 import axios from "axios";
 import Router from "next/router";
-export default function Summary({
+const Summary = ({
   totalAfterDiscount,
   setTotalAfterDiscount,
   user,
   cart,
   paymentMethod,
   selectedAddress,
-}) {
+}) =>{
   const [coupon, setCoupon] = useState("");
   const [discount, setDiscount] = useState("");
   const [error, setError] = useState("");
@@ -105,3 +105,5 @@ export default function Summary({
     </div>
   );
 }
+
+export default Summary;

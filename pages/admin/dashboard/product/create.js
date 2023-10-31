@@ -59,7 +59,7 @@ const initialState = {
   ],
   shippingFee: "",
 };
-export default function create({ parents, categories }) {
+const Create = ({ parents, categories }) =>{
   const [product, setProduct] = useState(initialState);
   const [subs, setSubs] = useState([]);
   const [colorImage, setColorImage] = useState("");
@@ -351,3 +351,5 @@ export async function getServerSideProps(ctx) {
     },
   };
 }
+
+export default Create;

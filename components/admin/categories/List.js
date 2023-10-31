@@ -1,7 +1,7 @@
 import ListItem from "./ListItem";
 import styles from "./styles.module.scss";
 
-export default function List({ categories, setCategories }) {
+const List = ({ categories, setCategories })=> {
   return (
     <ul className={styles.list}>
       {categories.map((category) => (
@@ -14,3 +14,5 @@ export default function List({ categories, setCategories }) {
     </ul>
   );
 }
+
+export default List;

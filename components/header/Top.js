@@ -8,7 +8,7 @@ import UserMenu from "./UserMenu";
 import { useSession } from "next-auth/react";
 import Flag from '../../public/images/uae.png';
 
-export default function Top({country}) {
+const Top = ({country})=> {
   const { data: session } = useSession()
   const [visible, setVisible] = useState(false);
   return (
@@ -65,3 +65,5 @@ export default function Top({country}) {
     </div>
   );
 }
+
+export default Top;

@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { MdOutlineRemoveCircle } from "react-icons/md";
 import styles from "./styles.module.scss";
 
-export default function Images({ images, setImages }) {
+const Images =({ images, setImages })=> {
   const [error, setError] = useState("");
   const inputRef = useRef(null);
   const handleImages = (e) => {
@@ -74,3 +74,5 @@ export default function Images({ images, setImages }) {
     </div>
   );
 }
+
+export default Images;

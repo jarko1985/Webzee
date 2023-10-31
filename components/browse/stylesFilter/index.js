@@ -3,7 +3,7 @@ import { BsPlusLg } from "react-icons/bs";
 import { FaMinus } from "react-icons/fa";
 import styles from "../styles.module.scss";
 import { useRouter } from "next/router";
-export default function StyleFilter({ data, styleHandler, replaceQuery }) {
+const StyleFilter=({ data, styleHandler, replaceQuery })=> {
   const router = useRouter();
   const existedStyle = router.query.style || "";
   const [show, setShow] = useState(true);
@@ -18,6 +18,7 @@ export default function StyleFilter({ data, styleHandler, replaceQuery }) {
             const check = replaceQuery("style", style);
             return (
               <div
+                key={i}
                 className={styles.filter__sizes_size}
                 onClick={() => styleHandler(check.result)}
               >
@@ -36,3 +37,5 @@ export default function StyleFilter({ data, styleHandler, replaceQuery }) {
     </div>
   );
 }
+
+export default StyleFilter;

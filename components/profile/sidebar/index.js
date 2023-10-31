@@ -2,8 +2,7 @@ import { sidebarData } from "../../../data/profile";
 import Item from "./Item";
 import styles from "./styles.module.scss";
 
-export default function Sidebar({ data }) {
-  console.log(data);
+const Sidebar=({ data }) =>{
   return (
     <div className={styles.sidebar}>
       <div className={styles.sidebar__container}>
@@ -12,7 +11,7 @@ export default function Sidebar({ data }) {
         <ul>
           {sidebarData.map((item, i) => (
             <Item
-              kye={i}
+              key={i}
               item={item}
               visible={data.tab == i.toString()}
               index={i.toString()}
@@ -23,3 +22,5 @@ export default function Sidebar({ data }) {
     </div>
   );
 }
+
+export default Sidebar;

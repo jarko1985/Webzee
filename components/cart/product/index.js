@@ -5,7 +5,7 @@ import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { updateCart } from "../../../store/cartSlice";
 import { useState, useEffect } from "react";
-export default function Product({ product, selected, setSelected }) {
+const Product = ({ product, selected, setSelected })=> {
   const { cart } = useSelector((state) => ({ ...state }));
   const [active, setActive] = useState();
  
@@ -123,3 +123,5 @@ export default function Product({ product, selected, setSelected }) {
     </div>
   );
 }
+
+export default Product;

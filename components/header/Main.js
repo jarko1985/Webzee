@@ -5,20 +5,20 @@ import { BsCart4 } from "react-icons/bs";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { useRouter } from "next/router";
-export default function Main({ searchHandler,logo }) {
+const Main = ({ searchHandler,logo })=> {
   const router = useRouter();
   const [query, setQuery] = useState(router.query.search || "");
   const { cart } = useSelector((state) => ({ ...state }));
-  //   const handleSearch = (e) => {
-  //     e.preventDefault();
-  //     if (router.pathname !== "/browse") {
-  //       if (query.length > 1) {
-  //         router.push(`/browse?search=${query}`);
-  //       }
-  //     } else {
-  //       searchHandler(query);
-  //     }
-  //   };
+    const handleSearch = (e) => {
+      e.preventDefault();
+      if (router.pathname !== "/browse") {
+        if (query.length > 1) {
+          router.push(`/browse?search=${query}`);
+        }
+      } else {
+        searchHandler(query);
+      }
+    };
   return (
     <div className={styles.main}>
       <div className={styles.main__container}>
@@ -42,10 +42,13 @@ export default function Main({ searchHandler,logo }) {
         <a className={styles.cart}>
           <Link href="/cart">
             <BsCart4 />
-            <span>0</span>
+            <span>{cart?.cartItems?.length}</span>
           </Link>
         </a>
       </div>
     </div>
   );
 }
+
+
+export default Main;

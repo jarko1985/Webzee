@@ -22,7 +22,7 @@ import axios from "axios";
 import styles from "../styles/browse.module.scss";
 
 
-export default function browse({ categories,products,subCategories,sizes,colors,brands,stylesData,patterns,materials,paginationCount }) {
+const Browse = ({ categories,products,subCategories,sizes,colors,brands,stylesData,patterns,materials,paginationCount })=> {
   const router = useRouter();
   const filter = ({
     search,
@@ -503,3 +503,6 @@ export async function getServerSideProps(ctx) {
     },
   };
 }
+
+
+export default Browse;

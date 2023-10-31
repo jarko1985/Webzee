@@ -8,7 +8,7 @@ import axios from "axios";
 import { TextField } from "@material-ui/core";
 import { DesktopDatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
-export default function Create({ setCoupons }) {
+const Create =({ setCoupons })=> {
   const [name, setName] = useState("");
   const [discount, setDiscount] = useState(0);
   const tomorrow = new Date();
@@ -113,3 +113,5 @@ export default function Create({ setCoupons }) {
     </>
   );
 }
+
+export default Create;

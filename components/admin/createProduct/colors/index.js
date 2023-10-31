@@ -3,13 +3,13 @@ import { useState } from "react";
 import styles from "./styles.module.scss";
 import { ColorExtractor } from "react-color-extractor";
 import { TbArrowUpRightCircle } from "react-icons/tb";
-export default function Colors({
+const Colors = ({
   product,
   setProduct,
   name,
   colorImage,
   ...props
-}) {
+})=> {
   const [toggle, setToggle] = useState(false);
   const [colors, setColors] = useState([]);
   const [field, meta] = useField(props);
@@ -76,3 +76,5 @@ export default function Colors({
     </div>
   );
 }
+
+export default Colors;

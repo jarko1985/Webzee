@@ -5,7 +5,7 @@ import SubCategory from "../../../models/SubCategory";
 import { useState } from "react";
 import Create from "../../../components/admin/subCategories/Create";
 import List from "../../../components/admin/subCategories/List.js";
-export default function subCategories({ categories, subCategories }) {
+const SubCategories = ({ categories, subCategories })=> {
   const [data, setData] = useState(subCategories);
   console.log(data);
   return (
@@ -36,3 +36,5 @@ export async function getServerSideProps(context) {
     },
   };
 }
+
+export default SubCategories;

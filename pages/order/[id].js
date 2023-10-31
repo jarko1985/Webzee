@@ -22,11 +22,11 @@ function reducer(state, action) {
       return { ...state, loading: false, success: false, error: false };
   }
 }
-export default function order({
+const OrderPage=({
   orderData,
   paypal_client_id,
   stripe_public_key,
-}) {
+}) =>{
   const [{ isPending }, paypalDispatch] = usePayPalScriptReducer();
   const [dispatch] = useReducer(reducer, {
     loading: true,
@@ -51,7 +51,7 @@ export default function order({
         value: "pending",
       });
     }
-  }, [order]);
+  }, []);
   function createOrderHanlder(data, actions) {
     return actions.order
       .create({
@@ -290,3 +290,5 @@ export async function getServerSideProps(context) {
     },
   };
 }
+
+export default OrderPage;

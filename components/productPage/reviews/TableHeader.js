@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "./styles.module.scss";
 import TableSelect from "./TableSelect";
-export default function TableHeader({ reviews, allSizes, colors }) {
+const TableHeader=({ reviews, allSizes, colors })=> {
   const [rating, setRating] = useState();
   const [size, setSize] = useState();
   const [style, setStyle] = useState();
@@ -75,3 +75,5 @@ const orderOptions = [
     value: "Oldest to most recent",
   },
 ];
+
+export default TableHeader;

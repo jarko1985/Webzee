@@ -3,8 +3,7 @@ import db from "../../../utils/db";
 import User from "../../../models/User";
 import EnhancedTable from "../../../components/admin/users/table";
 
-export default function users({ users }) {
-  console.log(users);
+const users = ({ users })=> {
   return (
     <Layout>
       <EnhancedTable rows={users} />
@@ -21,3 +20,5 @@ export async function getServerSideProps(ctx) {
     },
   };
 }
+
+export default users;

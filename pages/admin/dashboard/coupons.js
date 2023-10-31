@@ -4,7 +4,7 @@ import Coupon from "../../../models/Coupon";
 import { useState } from "react";
 import Create from "../../../components/admin/coupons/Create";
 import List from "../../../components/admin/coupons/List";
-export default function coupons({ coupons }) {
+const Coupons = ({ coupons })=> {
   const [data, setData] = useState(coupons);
   return (
     <Layout>
@@ -25,3 +25,4 @@ export async function getServerSideProps(context) {
     },
   };
 }
+export default Coupons;

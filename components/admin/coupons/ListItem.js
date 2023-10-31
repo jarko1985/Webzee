@@ -7,7 +7,7 @@ import { TextField } from "@material-ui/core";
 import { DesktopDatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import styles from "./styles.module.scss";
-export default function ListItem({ coupon, setCoupons }) {
+const ListItem = ({ coupon, setCoupons })=> {
   const [open, setOpen] = useState(false);
   const [name, setName] = useState("");
   const [discount, setDiscount] = useState("");
@@ -122,3 +122,5 @@ export default function ListItem({ coupon, setCoupons }) {
     </li>
   );
 }
+
+export default ListItem;

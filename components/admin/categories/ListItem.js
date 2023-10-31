@@ -4,7 +4,7 @@ import { useState } from "react";
 import { AiFillDelete, AiTwotoneEdit } from "react-icons/ai";
 import { toast } from "react-toastify";
 import styles from "./styles.module.scss";
-export default function ListItem({ category, setCategories }) {
+const ListItem = ({ category, setCategories }) =>{
   const [open, setOpen] = useState(false);
   const [name, setName] = useState("");
   const input = useRef(null);
@@ -75,3 +75,5 @@ export default function ListItem({ category, setCategories }) {
     </li>
   );
 }
+
+export default ListItem;

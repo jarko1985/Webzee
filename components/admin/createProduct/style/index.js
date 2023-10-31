@@ -6,13 +6,13 @@ import { useDispatch } from "react-redux";
 import { showDialog } from "../../../../store/DialogSlice";
 import styles from "./styles.module.scss";
 import { GiExtractionOrb } from "react-icons/gi";
-export default function Style({
+const Style =({
   product,
   setProduct,
   name,
   colorImage,
   ...props
-}) {
+})=> {
   const dispatch = useDispatch();
   const fileInput = useRef(null);
   const [meta, field] = useField(props);
@@ -101,3 +101,5 @@ export default function Style({
     </div>
   );
 }
+
+export default Style;

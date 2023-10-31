@@ -5,7 +5,7 @@ import Review from "./Review";
 import styles from "./styles.module.scss";
 import TableHeader from "./TableHeader";
 
-export default function Table({ reviews, allSizes, colors }) {
+const Table = ({ reviews, allSizes, colors })=> {
   const [page, setPage] = useState(1);
   const PER_PAGE = 3;
   const count = Math.ceil(reviews.length / PER_PAGE);
@@ -38,3 +38,4 @@ export default function Table({ reviews, allSizes, colors }) {
     </div>
   );
 }
+export default Table;

@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { showDialog } from "../../../../store/DialogSlice";
 import styles from "./styles.module.scss";
 import { GiExtractionOrb } from "react-icons/gi";
-export default function Images({
+const Images = ({
   images,
   setImages,
   header,
@@ -14,7 +14,7 @@ export default function Images({
   name,
   setColorImage,
   ...props
-}) {
+}) =>{
   const dispatch = useDispatch();
   const fileInput = useRef(null);
   const [meta, field] = useField(props);
@@ -156,3 +156,5 @@ export default function Images({
     </div>
   );
 }
+
+export default Images;

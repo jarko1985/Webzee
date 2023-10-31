@@ -7,7 +7,7 @@ import Link from "next/link";
 import { TbEdit } from "react-icons/tb";
 import { AiOutlineEye } from "react-icons/ai";
 import { RiDeleteBin2Line } from "react-icons/ri";
-export default function ProductCard({ product }) {
+const ProductCard = ({ product })=> {
   return (
     <div className={styles.product}>
       <h1 className={styles.product__name}>{product.name}</h1>
@@ -38,8 +38,8 @@ export default function ProductCard({ product }) {
         }}
       >
         {product.subProducts.map((p, i) => (
-          <SwiperSlide>
-            <div className={styles.product__item}>
+          <SwiperSlide key={i}>
+            <div key={i} className={styles.product__item}>
               <div className={styles.product__item_img}>
                 <img src={p.images[0].url} alt="" />
               </div>
@@ -61,3 +61,5 @@ export default function ProductCard({ product }) {
     </div>
   );
 }
+
+export default ProductCard;

@@ -3,7 +3,7 @@ import { BsPlusLg } from "react-icons/bs";
 import { FaMinus } from "react-icons/fa";
 import styles from "../styles.module.scss";
 
-export default function ColorsFilter({ colors, colorHandler, replaceQuery }) {
+const ColorsFilter = ({ colors, colorHandler, replaceQuery })=> {
   const [show, setShow] = useState(true);
   return (
     <div className={styles.filter}>
@@ -16,6 +16,7 @@ export default function ColorsFilter({ colors, colorHandler, replaceQuery }) {
             const check = replaceQuery("color", color);
             return (
               <button
+                key={i}
                 style={{ background: `${color}` }}
                 className={check.active ? styles.activeFilterColor : ""}
                 onClick={() => colorHandler(check.result)}
@@ -27,3 +28,4 @@ export default function ColorsFilter({ colors, colorHandler, replaceQuery }) {
     </div>
   );
 }
+export default ColorsFilter;

@@ -2,7 +2,7 @@ import styles from "./styles.module.scss";
 import Head from "next/head";
 import Header from "../../header";
 import Sidebar from "../sidebar";
-export default function Layout({ session, tab, children }) {
+const Layout = ({ session, tab, children })=> {
   return (
     <div className={styles.layout}>
       <Head>
@@ -21,3 +21,5 @@ export default function Layout({ session, tab, children }) {
     </div>
   );
 }
+
+export default Layout;

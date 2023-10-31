@@ -200,7 +200,7 @@ Row.propTypes = {
   }).isRequired,
 };
 
-export default function CollapsibleTable({ rows }) {
+const CollapsibleTable = ({ rows })=> {
   return (
     <TableContainer component={Paper}>
       <Typography
@@ -233,3 +233,5 @@ export default function CollapsibleTable({ rows }) {
     </TableContainer>
   );
 }
+
+export default CollapsibleTable;

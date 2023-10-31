@@ -3,7 +3,7 @@ import CollapsibleTable from "../../../components/admin/orders/table";
 import db from "../../../utils/db";
 import Order from "../../../models/Order";
 import User from "../../../models/User";
-export default function orders({ orders }) {
+const orders = ({ orders })=> {
   return (
     <Layout>
       <CollapsibleTable rows={orders} />
@@ -23,3 +23,4 @@ export async function getServerSideProps(ctx) {
     },
   };
 }
+export default orders;

@@ -6,7 +6,7 @@ import Payment from "../../components/checkout/payment";
 import styles from "../../styles/profile.module.scss";
 import axios from "axios";
 import { useRouter } from "next/router";
-export default function payment({ user, tab, defaultPaymentMethod }) {
+const ProfilePayment =({ user, tab, defaultPaymentMethod })=> {
   const router = useRouter();
   const [dbPM, setDbPM] = useState(defaultPaymentMethod);
   const [paymentMethod, setPaymentMethod] = useState(defaultPaymentMethod);
@@ -63,3 +63,5 @@ export async function getServerSideProps(ctx) {
     },
   };
 }
+
+export default ProfilePayment;

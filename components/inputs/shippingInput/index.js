@@ -1,7 +1,7 @@
 import styles from "./styles.module.scss";
 import { useField, ErrorMessage } from "formik";
 import { useEffect, useState, useRef } from "react";
-export default function ShippingInput({ placeholder, ...props }) {
+const ShippingInput = ({ placeholder, ...props })=> {
   const inputRef = useRef(null);
   const [field, meta] = useField(props);
   const [move, setMove] = useState(false);
@@ -44,3 +44,5 @@ export default function ShippingInput({ placeholder, ...props }) {
     </div>
   );
 }
+
+export default ShippingInput;

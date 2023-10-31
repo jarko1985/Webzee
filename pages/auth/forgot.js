@@ -11,7 +11,7 @@ import Link from "next/link";
 import DotLoaderSpinner from "../../components/loaders/dotLoader";
 import axios from "axios";
 import { getSession } from "next-auth/react";
-export default function forgot() {
+const Forgot=()=> {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
@@ -87,3 +87,5 @@ export default function forgot() {
     </>
   );
 }
+
+export default Forgot;

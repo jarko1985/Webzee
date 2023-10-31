@@ -4,7 +4,7 @@ import { useState } from "react";
 import ProductSwiper from "./ProductSwiper";
 import styles from "./styles.module.scss";
 
-export default function ProductCard({ product }) {
+const ProductCard = ({ product })=> {
   const [active, setActive] = useState(0);
   const [images, setImages] = useState(product.subProducts[active]?.images);
   const [prices, setPrices] = useState(
@@ -36,7 +36,7 @@ export default function ProductCard({ product }) {
   return (
     <div className={styles.product}>
       <div className={styles.product__container}>
-        <a href={`/product/${product.slug}?style=${active}`} target="_blank">
+        <a href={`/product/${product.slug}?style=${active}`}>
           <div>
             <ProductSwiper images={images} />
           </div>
@@ -90,3 +90,5 @@ export default function ProductCard({ product }) {
     </div>
   );
 }
+
+export default ProductCard;

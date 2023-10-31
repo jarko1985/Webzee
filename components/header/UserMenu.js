@@ -3,7 +3,7 @@ import Link from "next/link";
 import styles from "./styles.module.scss";
 
 
-export default function UserMenu({session}) {
+const UserMenu = ({session})=> {
   return (
     <div className={styles.menu}>
       <h4>Welcome to WEBZEE !</h4>
@@ -45,3 +45,5 @@ export default function UserMenu({session}) {
     </div>
   );
 }
+
+export default UserMenu;

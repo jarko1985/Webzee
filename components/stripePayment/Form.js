@@ -19,7 +19,7 @@ const CARD_OPTIONS = {
     },
   },
 };
-export default function Form({ total, order_id }) {
+const Form =({ total, order_id })=> {
   const [error, setError] = useState("");
   const stripe = useStripe();
   const elements = useElements();
@@ -57,3 +57,6 @@ export default function Form({ total, order_id }) {
     </div>
   );
 }
+
+
+export default Form;

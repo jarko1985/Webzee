@@ -3,7 +3,7 @@ import { BsFillPatchMinusFill, BsFillPatchPlusFill } from "react-icons/bs";
 import { sizesList } from "../../../../data/sizes";
 import styles from "./styles.module.scss";
 
-export default function Questions({ questions, product, setProduct }) {
+const Questions =({ questions, product, setProduct })=> {
   const handleQuestion = (i, e) => {
     const values = [...questions];
     values[i][e.target.name] = e.target.value;
@@ -78,3 +78,5 @@ export default function Questions({ questions, product, setProduct }) {
     </div>
   );
 }
+
+export default Questions;

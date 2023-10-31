@@ -5,7 +5,7 @@ import DialogModal from "../../dialogModal";
 import Sidebar from "./sidebar";
 import styles from "./styles.module.scss";
 
-export default function Layout({ children }) {
+const Layout = ({ children })=> {
   const { expandSidebar } = useSelector((state) => ({ ...state }));
   const showSidebar = expandSidebar.expandSidebar;
   const dispatch = useDispatch();
@@ -26,3 +26,5 @@ export default function Layout({ children }) {
     </div>
   );
 }
+
+export default Layout;
